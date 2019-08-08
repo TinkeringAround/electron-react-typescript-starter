@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-typescript-webpack-boilerplate",
-  "version": "2.0.1",
-  "description": "Pre-configured boilerplate for Electron + React + TypeScript",
+  "name": "electron-react-typescript-starter",
+  "version": "1.0",
+  "description": "starter for Electron + React + TypeScript",
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
@@ -11,8 +11,8 @@
     "build:mac": "electron-builder build --mac --x64"
   },
   "build": {
-    "appId": "com.devtography.electron_boilerplate",
-    "productName": "Electron+React+TypeScript Boilerplate",
+    "appId": "",
+    "productName": "Electron+React+TypeScript Starter",
     "directories": {
       "app": "./dist/",
       "output": "./out/"
@@ -64,17 +64,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Devtography/electron-react-typescript-webpack-boilerplate"
-  },
-  "keywords": [
-    "boilerplate",
-    "Electron",
-    "React",
-    "Typescript",
-    "Webpack"
-  ],
-  "bugs": {
-    "url": "https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues"
-  },
-  "homepage": "https://github.com/Devtography/electron-react-typescript-webpack-boilerplate#readme"
+    "url": "https://github.com/TinkeringAround/electron-react-typescript-starter"
+  }
 }
