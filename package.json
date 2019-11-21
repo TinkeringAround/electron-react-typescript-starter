@@ -1,70 +1,52 @@
 {
-  "name": "electron-react-typescript-starter",
-  "version": "1.0",
-  "description": "starter for Electron + React + TypeScript",
-  "main": "./dist/main.bundle.js",
-  "scripts": {
-    "start": "electron ./dist/main.bundle.js",
-    "dev": "rimraf dist && cross-env NODE_ENV=development webpack --watch --progress --colors",
-    "prod": "rimraf dist && cross-env NODE_ENV=production webpack --progress --colors",
-    "build:win": "electron-builder build --win --x64",
-    "build:mac": "electron-builder build --mac --x64",
-    "test": ""
-  },
-  "build": {
-    "appId": "",
-    "productName": "Electron+React+TypeScript Starter",
-    "directories": {
-      "app": "./dist/",
-      "output": "./out/"
-    },
-    "win": {
-      "target": "nsis",
-      "asar": false
-    },
-    "buildVersion": "1.0.0"
-  },
+  "name": "electron-app",
+  "version": "0.1.0",
+  "description": "Electron App",
   "author": "Thomas Maier",
+  "build": {
+    "appId": "<com.electronapp>"
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
+  "private": true,
   "dependencies": {
-    "@types/react": "^16.7.18",
-    "@types/react-dom": "^16.0.11",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.11",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "16.9.4",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "electron": "^7.1.2",
+    "electron-builder": "^21.2.0",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0",
+    "typescript": "3.7.2",
+    "wait-on": "^3.3.0"
   },
-  "devDependencies": {
-    "@types/react-router": "^4.4.3",
-    "@types/react-router-dom": "^4.3.1",
-    "acorn": "^6.0.5",
-    "ajv": "^6.6.2",
-    "copy-pkg-json-webpack-plugin": "0.0.38",
-    "cross-env": "^5.2.0",
-    "css-loader": "^1.0.1",
-    "electron": "^3.1.2",
-    "electron-builder": "^20.38.5",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-import-resolver-webpack": "^0.11.0",
-    "eslint-plugin-import": "^2.15.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.4",
-    "file-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "lodash": "^4.17.15",
-    "rimraf": "^2.6.3",
-    "source-map-loader": "^0.2.4",
-    "spectron": "^5.0.0",
-    "style-loader": "^0.23.1",
-    "ts-loader": "^5.3.3",
-    "ts-node": "^7.0.1",
-    "tsconfig-paths": "^3.7.0",
-    "tslint": "^5.12.0",
-    "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^3.2.2",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1"
+  "scripts": {
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TinkeringAround/electron-react-typescript-starter"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
