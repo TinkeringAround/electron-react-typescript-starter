@@ -1,15 +1,17 @@
 {
-  "name": "electron-app",
+  "name": "electron-react-typescript-starter",
   "version": "1.0.0",
-  "description": "Electron App",
-  "author": "Thomas Maier",
+  "description": "<description>",
+  "author": "<author>",
   "build": {
-    "appId": "<com.electronapp>"
+    "appId": "<com.electronapp>",
+    "productName": "<productName>"
   },
-  "main": "public/electron.js",
+  "main": "./public/electron.js",
   "homepage": "./",
   "private": true,
   "dependencies": {
+    "electron-is-dev": "2.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -21,19 +23,17 @@
     "cross-env": "7.0.3",
     "electron": "12.0.5",
     "electron-builder": "22.10.5",
-    "electron-is-dev": "2.0.0",
     "react-scripts": "4.0.3",
     "typescript": "4.2.4",
     "wait-on": "5.3.0"
   },
   "scripts": {
-    "build": "yarn react-build && yarn electron-build",
-    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-build": "electron-builder",
-    "release": "yarn react-build && electron-builder --publish=always",
-    "react-start": "react-scripts start",
-    "react-build": "react-scripts build",
-    "react-test": "react-scripts test"
+    "dev": "concurrently \"cross-env BROWSER=none yarn react:start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "electron-builder --publish=never",
+    "electron:package": "yarn react:build && yarn electron:build",
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "release": "yarn react:build && electron-builder --publish=never"
   },
   "eslintConfig": {
     "extends": "react-app"
