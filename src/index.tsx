@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
 
 // Styles
-import './index.css'
+import './index.scss'
 
 // ==========================================================
 const App: FC = () => {
